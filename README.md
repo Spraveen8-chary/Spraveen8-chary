@@ -1,3 +1,4 @@
+![banner](https://github.com/Spraveen8-chary/Spraveen8-chary/assets/108536707/eb99be03-5a6e-4274-a0b0-d18396b85ac3)
 
 <h1 align="center">Hi 👋, I'm Sarampenta Praveen</h1>
 <h3 align="center">Crafting Tomorrow's Intelligence Today: A Machine Learning Engineer's Odyssey</h3>
