@@ -10,15 +10,13 @@
 
 - 🌱 I’m currently learning **Generative AI**
 
-- 👨‍💻 All of my projects are available at [https://github.com/Spraveen8-chary?tab=repositories](https://github.com/Spraveen8-chary?tab=repositories)
-
 - 🔭 I’m planning to Build a **IBrains👀🧠 A Startup🏢**
 
 - 💬 Ask me about **Machine Learning, AI, Data Science**
 
 - 📫 How to reach me **sarampentapraveen@gmail.com**
 
-- 📄 Know about my experiences![resume](https://github.com/Spraveen8-chary/Spraveen8-chary/commits?author=Spraveen8-chary)
+- 📄 Know about my experiences![resume](https://drive.google.com/file/d/1U0VzUOCByIxGrhHco0HArur21AQHa7wv/view?usp=sharing)
 
 - ⚡ Fun fact **I think I'm funny😁**
 
