@@ -48,13 +48,12 @@
 <a href="https://www.mysql.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg" alt="mysql" width="60" height="60"/> </a>
 </p>
 
-![Snake animation](https://raw.githubusercontent.com/Spraveen8-chary/Spraveen8-chary/output/github-contribution-grid-snake-dark.svg
-)
-![Snake animation](https://raw.githubusercontent.com/saiabhiramjaini/saiabhiramjaini/output/github-contribution-grid-snake-dark.svg)
-
 <p><img height="195" align="left" src="https://github-readme-stats.vercel.app/api/top-langs?username=spraveen8-chary&show_icons=true&locale=en&layout=compact" alt="spraveen8-chary" /></p>
 
 <p>&nbsp;<img height="195" align="center" src="https://github-readme-stats.vercel.app/api?username=spraveen8-chary&show_icons=true&locale=en" alt="spraveen8-chary" /></p>
 
 <p><img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=spraveen8-chary&" alt="spraveen8-chary" /></p>
+
+## 🏆 GitHub Trophies
+![](https://github-profile-trophy.vercel.app/?username=Spraveen8-chary&theme=radical&no-frame=false&no-bg=true&margin-w=4)
 
