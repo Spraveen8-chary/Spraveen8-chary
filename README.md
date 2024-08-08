@@ -48,7 +48,7 @@
 <a href="https://www.mysql.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg" alt="mysql" width="60" height="60"/> </a>
 </p>
 
-![GitHub Contribution Snake](https://raw.githubusercontent.com/Spraveen8-chary/Spraveen8-chary/output/github-contribution-grid-snake-dark.svg)
+![Snake animation](https://raw.githubusercontent.com/saiabhiramjaini/saiabhiramjaini/output/github-contribution-grid-snake-dark.svg)
 
 <p><img height="195" align="left" src="https://github-readme-stats.vercel.app/api/top-langs?username=spraveen8-chary&show_icons=true&locale=en&layout=compact" alt="spraveen8-chary" /></p>
 
