@@ -16,7 +16,7 @@
 
 - 📫 How to reach me **sarampentapraveen@gmail.com**
 
-- 📄 Know about my experiences![resume]<a href="[https://www.linkedin.com/in/sarampentapraveen/](https://drive.google.com/file/d/1U0VzUOCByIxGrhHco0HArur21AQHa7wv/view?usp=sharing)" target="blank">
+- 📄 Know about my experiences!<a href="[https://www.linkedin.com/in/sarampentapraveen/](https://drive.google.com/file/d/1U0VzUOCByIxGrhHco0HArur21AQHa7wv/view?usp=sharing)" target="blank">RESUME</a>
 
 - ⚡ Fun fact **I think I'm funny😁**
 
