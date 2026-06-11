@@ -1,0 +1,309 @@
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Space+Grotesk:wght@400;600;700&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --g:#00ff9d;--g2:#00c97a;--p:#b06cff;--p2:#8a4cf0;
+  --bg:#0a0a0f;--bg2:#10101a;--bg3:#161625;
+  --text:#e8e8f0;--muted:#6b6b8a;
+  --border:rgba(0,255,157,0.2);
+}
+body{background:var(--bg);font-family:'Space Grotesk',sans-serif;color:var(--text);padding:0;overflow-x:hidden}
+.wrap{max-width:900px;margin:0 auto;padding:2rem 1.5rem}
+
+/* CANVAS */
+#particles{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;opacity:0.5}
+
+/* HEADER */
+.hero{position:relative;z-index:1;text-align:center;padding:3rem 0 2rem}
+.hero-tag{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--g);letter-spacing:3px;text-transform:uppercase;margin-bottom:1.5rem;opacity:0}
+.hero-name{font-size:clamp(2.5rem,5vw,4rem);font-weight:700;line-height:1.1;margin-bottom:1rem;opacity:0}
+.name-sp{color:var(--g)}
+.hero-title{font-family:'JetBrains Mono',monospace;font-size:1rem;color:var(--p);margin-bottom:2rem;min-height:2rem;opacity:0}
+.cursor{display:inline-block;width:2px;height:1.1em;background:var(--p);vertical-align:text-bottom;animation:blink 0.9s step-end infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+.hero-badges{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:2rem;opacity:0}
+.badge{font-family:'JetBrains Mono',monospace;font-size:11px;padding:4px 12px;border-radius:20px;border:1px solid;letter-spacing:1px}
+.badge-g{border-color:var(--g);color:var(--g);background:rgba(0,255,157,0.06)}
+.badge-p{border-color:var(--p);color:var(--p);background:rgba(176,108,255,0.06)}
+
+/* STATUS BAR */
+.status-bar{display:flex;align-items:center;gap:8px;justify-content:center;margin-bottom:3rem;opacity:0;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted)}
+.status-dot{width:8px;height:8px;border-radius:50%;background:var(--g);animation:pulse 2s ease infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(0,255,157,0.4)}50%{box-shadow:0 0 0 6px rgba(0,255,157,0)}}
+
+/* SECTION */
+.section{position:relative;z-index:1;margin-bottom:3rem}
+.sec-label{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--g);letter-spacing:3px;text-transform:uppercase;margin-bottom:1.5rem;display:flex;align-items:center;gap:12px}
+.sec-label::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,rgba(0,255,157,0.3),transparent)}
+
+/* ABOUT TERMINAL */
+.terminal{background:var(--bg2);border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:3rem}
+.term-bar{background:var(--bg3);padding:12px 16px;display:flex;align-items:center;gap:8px;border-bottom:1px solid var(--border)}
+.tdot{width:10px;height:10px;border-radius:50%}
+.td-r{background:#ff5f57}.td-y{background:#febc2e}.td-g{background:#28c840}
+.term-title{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);margin-left:auto;margin-right:auto}
+.term-body{padding:1.5rem;font-family:'JetBrains Mono',monospace;font-size:13px;line-height:1.8}
+.prompt{color:var(--g)}.cmd{color:var(--text)}.out{color:#a0a0c0;margin-left:1rem}
+.out-hi{color:var(--p)}.out-g{color:var(--g)}
+
+/* TECH GRID */
+.tech-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:12px}
+.tech-card{background:var(--bg2);border:1px solid rgba(176,108,255,0.15);border-radius:10px;padding:14px 12px;display:flex;align-items:center;gap:10px;cursor:default;transition:all 0.3s ease;position:relative;overflow:hidden}
+.tech-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(176,108,255,0.05),transparent);opacity:0;transition:opacity 0.3s}
+.tech-card:hover{border-color:var(--g);transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,255,157,0.1)}
+.tech-card:hover::before{opacity:1}
+.tech-icon{font-size:22px;line-height:1}
+.tech-name{font-size:12px;font-weight:600;color:var(--text)}
+.tech-level{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--muted);margin-top:2px}
+
+/* PROJECTS */
+.projects-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:600px){.projects-grid{grid-template-columns:1fr}}
+.proj-card{background:var(--bg2);border:1px solid rgba(0,255,157,0.1);border-radius:12px;padding:1.25rem;transition:all 0.3s;position:relative;overflow:hidden}
+.proj-card::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--g),var(--p));transform:scaleX(0);transform-origin:left;transition:transform 0.3s}
+.proj-card:hover{border-color:rgba(0,255,157,0.3);transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,0,0,0.4)}
+.proj-card:hover::after{transform:scaleX(1)}
+.proj-icon{font-size:24px;margin-bottom:10px}
+.proj-name{font-size:14px;font-weight:700;color:var(--text);margin-bottom:6px}
+.proj-desc{font-size:12px;color:var(--muted);line-height:1.6;margin-bottom:12px}
+.proj-tags{display:flex;flex-wrap:wrap;gap:4px}
+.ptag{font-family:'JetBrains Mono',monospace;font-size:10px;padding:2px 8px;border-radius:4px;background:rgba(176,108,255,0.1);color:var(--p);border:1px solid rgba(176,108,255,0.2)}
+
+/* STATS */
+.stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:3rem}
+.stat-box{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:1.25rem;text-align:center}
+.stat-num{font-size:2rem;font-weight:700;color:var(--g);font-family:'JetBrains Mono',monospace;line-height:1}
+.stat-lbl{font-size:11px;color:var(--muted);margin-top:6px;text-transform:uppercase;letter-spacing:1px}
+
+/* CONNECT */
+.connect-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+@media(max-width:550px){.connect-grid{grid-template-columns:1fr 1fr}}
+.conn-btn{background:var(--bg2);border:1px solid rgba(0,255,157,0.15);border-radius:10px;padding:14px 10px;text-align:center;text-decoration:none;color:var(--text);transition:all 0.3s;display:block}
+.conn-btn:hover{border-color:var(--g);background:rgba(0,255,157,0.06);color:var(--g)}
+.conn-icon{font-size:20px;margin-bottom:6px}
+.conn-label{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:1px;color:var(--muted)}
+.conn-btn:hover .conn-label{color:var(--g2)}
+
+/* MANIFESTO */
+.manifesto{background:var(--bg2);border:1px solid rgba(176,108,255,0.2);border-radius:12px;padding:2rem;margin-bottom:3rem}
+.manifesto-line{display:flex;align-items:flex-start;gap:12px;margin-bottom:10px;font-size:13px;line-height:1.6}
+.manifesto-line:last-child{margin-bottom:0}
+.m-arrow{color:var(--g);font-family:'JetBrains Mono',monospace;font-size:12px;margin-top:1px;flex-shrink:0}
+
+/* FOOTER */
+.footer{text-align:center;padding:2rem 0;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);position:relative;z-index:1}
+.footer-glow{color:var(--g);font-weight:700}
+
+/* ANIMATE IN */
+.reveal{opacity:0;transform:translateY(20px);transition:opacity 0.6s ease,transform 0.6s ease}
+.revealed{opacity:1;transform:none}
+</style>
+
+<canvas id="particles"></canvas>
+
+<div class="wrap">
+
+<div class="hero">
+  <div class="hero-tag" id="ht">[ LOADING HUMAN ENGINEER... DONE ]</div>
+  <h1 class="hero-name" id="hn">Hi, I'm <span class="name-sp">Praveen</span> 🤖</h1>
+  <div class="hero-title" id="htitle"><span id="typeout">_</span><span class="cursor"></span></div>
+  <div class="hero-badges" id="hb">
+    <span class="badge badge-g">🧠 Agentic AI</span>
+    <span class="badge badge-p">🔥 Gen AI Engineer</span>
+    <span class="badge badge-g">🚀 Founder @ IBrains</span>
+    <span class="badge badge-p">📍 Hyderabad, IN</span>
+  </div>
+  <div class="status-bar" id="sb">
+    <div class="status-dot"></div>
+    <span>currently building: <strong style="color:var(--g)">production AI agents</strong> @ Synxa IT</span>
+  </div>
+</div>
+
+<div class="section reveal">
+  <div class="sec-label">// about.exe</div>
+  <div class="terminal">
+    <div class="term-bar">
+      <div class="tdot td-r"></div><div class="tdot td-y"></div><div class="tdot td-g"></div>
+      <div class="term-title">praveen@ibrains ~ zsh</div>
+    </div>
+    <div class="term-body">
+      <div><span class="prompt">❯</span> <span class="cmd">whoami</span></div>
+      <div class="out"><span class="out-hi">Sarampenta Praveen</span> — CS Engineer who got tired of AI just chatting and decided to make it <span class="out-g">work.</span></div>
+      <br>
+      <div><span class="prompt">❯</span> <span class="cmd">cat mission.txt</span></div>
+      <div class="out">I build AI agents that don't just answer questions —</div>
+      <div class="out">they <span class="out-g">review your code</span>, <span class="out-hi">conduct interviews</span>, <span class="out-g">research companies</span>,</div>
+      <div class="out">and actually <span class="out-hi">get things done.</span></div>
+      <br>
+      <div><span class="prompt">❯</span> <span class="cmd">cat current_status.json</span></div>
+      <div class="out">{</div>
+      <div class="out">&nbsp;&nbsp;"role": <span class="out-g">"Gen AI Intern @ Synxa IT"</span>,</div>
+      <div class="out">&nbsp;&nbsp;"building": <span class="out-g">"IBrains 🧠 — AI startup"</span>,</div>
+      <div class="out">&nbsp;&nbsp;"focus": <span class="out-hi">["Agentic AI", "RAG Systems", "LLM Infra"]</span>,</div>
+      <div class="out">&nbsp;&nbsp;"open_to": <span class="out-g">"collabs, roles, ideas"</span>,</div>
+      <div class="out">&nbsp;&nbsp;"cgpa_diploma": <span class="out-hi">9.65</span></div>
+      <div class="out">}</div>
+      <br>
+      <div><span class="prompt">❯</span> <span class="cursor"></span></div>
+    </div>
+  </div>
+</div>
+
+<div class="section reveal">
+  <div class="sec-label">// stats.overview</div>
+  <div class="stats-grid">
+    <div class="stat-box"><div class="stat-num" id="s1">0</div><div class="stat-lbl">AI Projects Shipped</div></div>
+    <div class="stat-box"><div class="stat-num" id="s2">0</div><div class="stat-lbl">Hackathons Won</div></div>
+    <div class="stat-box"><div class="stat-num" id="s3">0</div><div class="stat-lbl">% Diploma CGPA</div></div>
+  </div>
+</div>
+
+<div class="section reveal">
+  <div class="sec-label">// tech.stack</div>
+  <div class="tech-grid" id="techgrid"></div>
+</div>
+
+<div class="section reveal">
+  <div class="sec-label">// projects.featured</div>
+  <div class="projects-grid" id="pgrid"></div>
+</div>
+
+<div class="section reveal">
+  <div class="sec-label">// beliefs.manifest</div>
+  <div class="manifesto" id="manifesto"></div>
+</div>
+
+<div class="section reveal">
+  <div class="sec-label">// connect.links</div>
+  <div class="connect-grid">
+    <a href="https://www.linkedin.com/in/sarampentapraveen/" class="conn-btn">
+      <div class="conn-icon">💼</div><div class="conn-label">LinkedIn</div>
+    </a>
+    <a href="https://github.com/Spraveen8-chary" class="conn-btn">
+      <div class="conn-icon">🐙</div><div class="conn-label">GitHub</div>
+    </a>
+    <a href="https://spraveen.netlify.app" class="conn-btn">
+      <div class="conn-icon">🌐</div><div class="conn-label">Portfolio</div>
+    </a>
+    <a href="mailto:sarampentapraveen@gmail.com" class="conn-btn">
+      <div class="conn-icon">📧</div><div class="conn-label">Email</div>
+    </a>
+  </div>
+</div>
+
+<div class="footer">
+  <div style="margin-bottom:8px">⚡ <span class="footer-glow">Building AI Agents today</span> that become tomorrow's digital workforce</div>
+  <div>Praveen × IBrains × 2025 — <span style="color:var(--p)">Hyderabad → Everywhere</span></div>
+</div>
+</div>
+
+<script>
+const canvas = document.getElementById('particles');
+const ctx = canvas.getContext('2d');
+let W, H, particles = [];
+function resize(){W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight}
+resize();window.addEventListener('resize',resize);
+for(let i=0;i<80;i++){
+  particles.push({x:Math.random()*2000,y:Math.random()*1200,vx:(Math.random()-0.5)*0.3,vy:(Math.random()-0.5)*0.3,r:Math.random()*1.5+0.3,a:Math.random()*0.4+0.1,c:Math.random()>0.5?'0,255,157':'176,108,255'})
+}
+function drawP(){
+  ctx.clearRect(0,0,W,H);
+  particles.forEach(p=>{
+    p.x+=p.vx;p.y+=p.vy;
+    if(p.x<0)p.x=W;if(p.x>W)p.x=0;if(p.y<0)p.y=H;if(p.y>H)p.y=0;
+    ctx.beginPath();ctx.arc(p.x%W,p.y%H,p.r,0,Math.PI*2);
+    ctx.fillStyle=`rgba(${p.c},${p.a})`;ctx.fill();
+  });
+  requestAnimationFrame(drawP);
+}
+drawP();
+
+function fadeIn(id,delay){setTimeout(()=>{const el=document.getElementById(id);if(el)el.style.cssText+='opacity:1;transition:opacity 0.6s ease,transform 0.6s ease;transform:none'},delay)}
+fadeIn('ht',300);fadeIn('hn',600);fadeIn('htitle',900);fadeIn('hb',1200);fadeIn('sb',1500);
+
+const titles=['Agentic AI Systems Engineer 🤖','Generative AI Builder ⚡','Founder @ IBrains 🧠','LLM Whisperer & Debugger 🔥','RAG Architecture Nerd 🔍','PR Review Agent Creator 🛠️'];
+let ti=0,ci=0,deleting=false,wait=0;
+const tout=document.getElementById('typeout');
+function type(){
+  const cur=titles[ti];
+  if(!deleting){if(ci<cur.length){tout.textContent=cur.substring(0,++ci);setTimeout(type,60)}else{deleting=true;setTimeout(type,2000)}}
+  else{if(ci>0){tout.textContent=cur.substring(0,--ci);setTimeout(type,30)}else{deleting=false;ti=(ti+1)%titles.length;setTimeout(type,400)}}
+}
+setTimeout(type,1100);
+
+function countUp(id,target,dur,suffix=''){
+  const el=document.getElementById(id);let s=0,start=null;
+  function step(ts){if(!start)start=ts;const p=Math.min((ts-start)/dur,1);
+    el.textContent=Math.floor(p*target)+suffix;if(p<1)requestAnimationFrame(step)}
+  setTimeout(()=>requestAnimationFrame(step),600);
+}
+
+const tech=[
+  {i:'🐍',n:'Python',l:'Expert'},
+  {i:'🦜',n:'LangChain',l:'Advanced'},
+  {i:'🧠',n:'LLM APIs',l:'Advanced'},
+  {i:'📚',n:'RAG Systems',l:'Advanced'},
+  {i:'🔥',n:'Gen AI',l:'Advanced'},
+  {i:'⚡',n:'Redis/Celery',l:'Intermediate'},
+  {i:'🍃',n:'MongoDB',l:'Intermediate'},
+  {i:'🌊',n:'FastAPI',l:'Intermediate'},
+  {i:'🐳',n:'Docker',l:'Intermediate'},
+  {i:'🔮',n:'TensorFlow',l:'Intermediate'},
+  {i:'📊',n:'Scikit-learn',l:'Intermediate'},
+  {i:'🌐',n:'Streamlit',l:'Intermediate'},
+  {i:'💙',n:'Flutter',l:'Beginner'},
+  {i:'🗃️',n:'SQL',l:'Intermediate'},
+  {i:'📦',n:'JavaScript',l:'Intermediate'},
+  {i:'🛸',n:'Agentic AI',l:'Advanced'},
+];
+const tg=document.getElementById('techgrid');
+tech.forEach((t,idx)=>{
+  const d=document.createElement('div');d.className='tech-card';
+  d.style.cssText='opacity:0;transform:translateY(10px);transition:opacity 0.4s ease,transform 0.4s ease,border-color 0.3s,box-shadow 0.3s,border 0.3s';
+  d.innerHTML=`<span class="tech-icon">${t.i}</span><div><div class="tech-name">${t.n}</div><div class="tech-level">${t.l}</div></div>`;
+  tg.appendChild(d);
+  setTimeout(()=>{d.style.opacity='1';d.style.transform='none'},idx*60+800);
+});
+
+const projs=[
+  {i:'🤖',n:'PR Review Agent',d:'AI that reviews pull requests, analyzes code quality, spots bugs & enforces architecture — fully automated.',tags:['LLMs','Redis','Celery','Docker','Webhooks']},
+  {i:'🎓',n:'EduFlex',d:'Adaptive AI learning platform with RAG chatbot, personalized course recommendations & multi-language compiler.',tags:['RAG','NLP','Streamlit','MongoDB']},
+  {i:'🔍',n:'S.E.A.R.C.H',d:'Real-time web search engine with RAG architecture, multi-step reasoning & hallucination reduction.',tags:['RAG','LLMs','NLP']},
+  {i:'🏢',n:'Company Research Agent',d:'Autonomous agent that researches companies, analyzes competitors & generates strategic reports.',tags:['Agents','LangChain','LLMs']},
+];
+const pg=document.getElementById('pgrid');
+projs.forEach((p,idx)=>{
+  const d=document.createElement('div');d.className='proj-card';
+  d.innerHTML=`<div class="proj-icon">${p.i}</div><div class="proj-name">${p.n}</div><div class="proj-desc">${p.d}</div><div class="proj-tags">${p.tags.map(t=>`<span class="ptag">${t}</span>`).join('')}</div>`;
+  pg.appendChild(d);
+});
+
+const beliefs=[
+  {a:'→',t:'AI should do work, not just answer questions — code review, research, interviews, automation.'},
+  {a:'→',t:'Every developer deserves an AI copilot that actually understands context.'},
+  {a:'→',t:'The best AI product is the one that disappears into the workflow.'},
+  {a:'→',t:"Agentic systems aren't the future — I'm shipping them right now."},
+  {a:'→',t:'Build in Hyderabad. Deploy to the world. No excuses.'},
+];
+const mf=document.getElementById('manifesto');
+beliefs.forEach(b=>{
+  const d=document.createElement('div');d.className='manifesto-line';
+  d.innerHTML=`<span class="m-arrow">${b.a}</span><span style="color:var(--text)">${b.t}</span>`;
+  mf.appendChild(d);
+});
+
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.classList.add('revealed');
+      if(e.target.contains(document.getElementById('s1'))){
+        countUp('s1',6,1200);
+        countUp('s2',3,1000);
+        countUp('s3',9,800,'.');setTimeout(()=>{document.getElementById('s3').textContent='9.65'},900);
+      }
+    }
+  });
+},{threshold:0.15});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
